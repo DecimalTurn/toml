@@ -18,7 +18,9 @@
 
 ;; Overall Structure
 
-toml = expression *( newline expression )
+toml = [ utf8-bom ] expression *( newline expression )
+
+utf8-bom = %xEF.BB.BF  ; U+FEFF
 
 expression =  ws [ comment ]
 expression =/ ws keyval ws [ comment ]
